@@ -1,6 +1,7 @@
 import pandas as pd
+import numpy as np
 import glob
-import jaconv 
+import jaconv
 
 def to_hankaku(df):
     """
@@ -33,16 +34,16 @@ for csv_file in csv_file_list[1:]:
     df_ = to_hankaku(df_)
     df += df_
 
-df = df.drop('0',axis = 1)
+df = df.drop('0',axis = 1) #不要な列の削除
+df.index = np.arange(1, len(df)+1) #index振り直し
+
 print(df)
 print("空いている時間:")
 #  全体で空いている時間を出力
 for col in df:
     ans_time:list = []
-    for index_ in range(5):
+    for index_ in range(1, len(df) + 1):
         if df[col][index_] == 0:
-            ans_time.append(index_ + 1)
+            ans_time.append(index_)
     if len(ans_time) != 0 :
         print(f"{col}: {ans_time}")
-                
-            
