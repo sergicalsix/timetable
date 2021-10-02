@@ -25,16 +25,16 @@ def to_hankaku(df):
 csv_file_list = glob.glob('data/*.csv')
 print(f"Total file num is {len(csv_file_list)}")
 
+# 全角の削除
 df = pd.read_csv(csv_file_list[0])
 df = to_hankaku(df)
-
-
 for csv_file in csv_file_list[1:]:
     df_ =  pd.read_csv(csv_file)
     df_ = to_hankaku(df_)
     df += df_
 
-df = df.drop('0',axis = 1) #不要な列の削除
+
+df = df.drop(df.columns[[0]],axis = 1) #不要な列の削除
 df.index = np.arange(1, len(df)+1) #index振り直し
 
 print(df)
