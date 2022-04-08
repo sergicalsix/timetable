@@ -16,6 +16,7 @@ data下のcsvファイル
 
 
 ## ディレクトリ
+```
 .
 ├── README.md
 ├── data
@@ -30,6 +31,6 @@ data下のcsvファイル
 ├── presentation&group_decision.ipynb
 ├── presentation_date.csv
 └── timetable.py
-
+```
 1 directory, 12 files
 
